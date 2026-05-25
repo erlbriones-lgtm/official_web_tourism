@@ -1,0 +1,6 @@
+{
+  "name": "Tagbilaran City Tourism Office",
+  "description": "The official digital gateway for Tagbilaran City Tourism. Exploring Tagbilaran's rich history of peace, friendship, and creative heritage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
