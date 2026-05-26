@@ -7,14 +7,13 @@ import {
   Send, 
   Compass, 
   BookOpen, 
-  CheckCircle,
-  HelpCircle,
-  Clock,
-  QrCode,
-  Globe,
-  Award,
-  ChevronLeft,
-  X,
+  CheckCircle, 
+  HelpCircle, 
+  Clock, 
+  QrCode, 
+  Globe, 
+  Award, 
+  X, 
   RefreshCw,
   Terminal,
   Layers,
@@ -24,15 +23,20 @@ import {
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Downloadables from "./components/Downloadables";
+import HeritageMarquee from "./components/HeritageMarquee";
+
+import slide1 from "./assets/images/blood_compact_monument_1779755352294.jpg";
+import slide2 from "./assets/images/bohol_national_museum_1779755372514.jpg";
+import slide3 from "./assets/images/bohol_blades_1779755393328.jpg";
+import slide4 from "./assets/images/ancestral_house_1779755412422.jpg";
+import slide5 from "./assets/images/tubig_dako_spring_1779755435421.jpg";
+
 import { tagbilaranLandmarks } from "./data";
 import { Landmark, ChatMessage, LocalStatusResponse } from "./types";
 
 export default function App() {
   // Navigation / Theme Styling Switch State
   const [activeView, setActiveView] = useState<"home" | "heritage" | "downloadables" | "about">("home");
-
-  // Heritage Slide State for displayher.jpg style
-  const [heritageSlideIndex, setHeritageSlideIndex] = useState(0);
 
   // Core App states
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -191,51 +195,6 @@ export default function App() {
       year: "2026",
       title: "Creative Tech Hub Launch",
       description: "Uniting physical artisanry with high performance digital spaces to empower the next wave of local sustainable designers."
-    }
-  ];
-
-  const heritageSlides = [
-    { 
-      year: "1565", 
-      title: "THE BOHOL SANDUGO SHRINE", 
-      desc: "Historic ground of the Sandugo, the first treaty of friendship and ancestral peace agreement between Datu Sikatuna and explorer Miguel Lopez de Legazpi in 1565.", 
-      loc: "BOHOL DISTRICT, TAGBILARAN CITY", 
-      url: "/BCS.webp" 
-    },
-    { 
-      year: "1860", 
-      title: "NATIONAL MUSEUM BOHOL", 
-      desc: "The grand Spanish era neoclassical legislative hall, showcasing ancestral geological artifacts, botanical catalogs, and centuries old religious craftsmanship.", 
-      loc: "POBLACION II, TAGBILARAN CITY", 
-      url: "/MUSEUM2.webp" 
-    },
-    { 
-      year: "1905", 
-      title: "PLAZA RIZAL BANDSTAND", 
-      desc: "The central civic sanctuary and gathering forum. The neoclassical park gazebo acts as a sparkling focus during evening folk performances and regional festivals.", 
-      loc: "POBLACION COGNATE, TAGBILARAN CITY", 
-      url: "https://images.unsplash.com/photo-1496568818309-53d7c7753022?auto=format&fit=crop&q=80&w=1200" 
-    },
-    { 
-      year: "1942", 
-      title: "BOHOLANO BLADE WEAPONS", 
-      desc: "A magnificent display of native forged Bolos, Boholano krisses, and traditional defense weapons showcasing historic local metallurgy and protective arts in Dampas.", 
-      loc: "DAMPAS CRISTO REY DISTRICT", 
-      url: "/Bohol Blades (3).webp" 
-    },
-    { 
-      year: "1945", 
-      title: "SPANISH COLONIAL ANCESTRAL HOUSES", 
-      desc: "Located across Poblacion 1, these majestic Bahay na Bato style local heritage homes feature magnificent capiz window shutters, sturdy native hardwoods, and century old local narratives.", 
-      loc: "POBLACION I, TAGBILARAN CITY", 
-      url: "/Old House in Poblacion 1 (3).webp" 
-    },
-    { 
-      year: "2024", 
-      title: "TUBIG DAKO LAGOON & SPRING", 
-      desc: "Located in Barangay Taloto, Tubig Dako ('Big Water') is an ancient, refreshing freshwater spring cave sanctuary, preserving vital aquatic pathways and heritage folklore.", 
-      loc: "TALOTO ECO-SANCTUARY, TAGBILARAN CITY", 
-      url: "/Tubig Dako in Taloto (1).webp" 
     }
   ];
 
@@ -425,168 +384,10 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="pt-28 pb-20 w-full flex flex-col items-center"
+            className="pt-20 pb-20 w-full flex flex-col items-center"
           >
-            {/* Elegantly contained Slanted Card featuring a majestic Saulog festival gradient */}
-            <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 my-8" id="displayher-slanted-card-container">
-              <div 
-                className="relative py-14 sm:py-20 px-6 sm:px-12 md:px-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ff5722] via-[#e63946] to-[#4c0070] shadow-[0_25px_60px_rgba(230,57,70,0.25)] border border-[#ff5722]/30" 
-                id="displayher-slanted-block"
-              >
-                {/* Micro slanted grid to enrich the premium custom display feel */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:24px_24px] opacity-40 pointer-events-none" />
-                {/* Subtle light leak at top-left corner */}
-                <div className="absolute -top-12 -left-12 w-96 h-96 bg-[#00f5d4]/15 rounded-full blur-[100px] pointer-events-none" />
-
-                {/* Main content flow - bounded centrally inside z-10 */}
-                <div className="relative z-10 flex flex-col py-2">
-                  
-                  {/* Center top Title exactly matching displayher.jpg */}
-                  <div className="text-center mb-14">
-                    <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#00f5d4] font-extrabold block mb-1">
-                      TAGBILARAN CITY
-                    </span>
-                    <h2 className="font-display font-black text-white text-xl sm:text-3xl uppercase tracking-widest leading-none">
-                      Heritage Sites &amp; Landmarks
-                    </h2>
-                  </div>
-
-                  {/* Columns layout */}
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    
-                    {/* Left Metadata context area */}
-                    <div className="lg:col-span-6 flex flex-col justify-between min-h-[350px] text-left">
-                      <div>
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={heritageSlideIndex}
-                            initial={{ opacity: 0, x: -12 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 12 }}
-                            transition={{ duration: 0.28, ease: "easeInOut" }}
-                          >
-                            {/* Year pill badge as seen in displayher.jpg */}
-                            <div className="mb-6">
-                              <span className="inline-block px-4 py-1 rounded-full border border-white/30 font-mono text-[11px] font-black text-[#ffaa00] bg-white/5 tracking-wider">
-                                {heritageSlides[heritageSlideIndex].year}
-                              </span>
-                            </div>
-
-                            {/* Bold italic Display Title as in displayher.jpg */}
-                            <h3 className="font-sans font-black text-white text-3xl sm:text-4xl uppercase tracking-wide leading-none italic mb-4 selection:bg-white/20">
-                              {heritageSlides[heritageSlideIndex].title}
-                            </h3>
-
-                            {/* Description detailed text */}
-                            <p className="text-purple-50/95 font-sans text-sm sm:text-base leading-relaxed mb-6 select-all selection:bg-white/20">
-                              {heritageSlides[heritageSlideIndex].desc}
-                            </p>
-
-                            {/* Location pin indicator */}
-                            <span className="font-mono text-[9px] uppercase tracking-widest text-[#ff5722] block font-bold mb-4">
-                              📍 {heritageSlides[heritageSlideIndex].loc}
-                            </span>
-
-                            <div className="w-full h-px bg-white/10 my-4" />
-
-                            {/* Top mini index pager */}
-                            <div className="font-mono text-xs sm:text-sm font-black text-white/90">
-                              {heritageSlideIndex + 1} <span className="text-white/30">/</span> 6
-                            </div>
-                          </motion.div>
-                        </AnimatePresence>
-                      </div>
-                    </div>
-
-                    {/* Right Column - Presentation Image card matching displayher.jpg with rounded corners */}
-                    <div className="lg:col-span-6 flex items-center justify-center shrink-0">
-                      <div className="relative w-full aspect-[4/3] sm:aspect-[1.5] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(4,120,87,0.2)] border-4 border-white/20 group bg-black/10">
-                        <AnimatePresence mode="wait">
-                          <motion.img
-                            key={heritageSlideIndex}
-                            src={heritageSlides[heritageSlideIndex].url}
-                            alt="Heritage Landmark Display"
-                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-102"
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.95 }}
-                            transition={{ duration: 0.35 }}
-                            referrerPolicy="no-referrer"
-                          />
-                        </AnimatePresence>
-                        
-                        {/* Dynamic label stamp inside right card */}
-                        <div className="absolute top-4 right-4">
-                          <span className="px-3 py-1 bg-[#06110e]/95 backdrop-blur-sm shadow border border-white/20 text-white rounded-full font-mono text-[8px] uppercase tracking-widest font-black">
-                            HISTORIC NODE {heritageSlideIndex + 1}
-                          </span>
-                        </div>
-
-                        {/* Atmosphere gradient overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* BOTTOM CENTRED NAVIGATION PANEL AS SEEN IN displayher.jpg */}
-                  <div className="flex items-center justify-center gap-6 mt-14 pt-4 relative z-20">
-                    {/* Chevron Left Button inside hover circle container */}
-                    <button
-                      onClick={() => setHeritageSlideIndex((prev) => (prev - 1 + 6) % 6)}
-                      className="w-10 h-10 rounded-full border border-white/25 hover:bg-white hover:text-[#ff5722] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 text-white cursor-pointer shadow-md bg-white/5"
-                      title="Previous Milestone"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-
-                    {/* Dots slider bar index exactly matching displayher.jpg */}
-                    <div className="flex items-center gap-2">
-                      {heritageSlides.map((_, dotIdx) => (
-                        <button
-                          key={dotIdx}
-                          onClick={() => setHeritageSlideIndex(dotIdx)}
-                          className={`transition-all duration-300 rounded-full h-1.5 cursor-pointer ${
-                            heritageSlideIndex === dotIdx 
-                              ? "w-6 bg-white" 
-                              : "w-1.5 bg-white/30 hover:bg-white/70"
-                          }`}
-                          aria-label={`Go to slide ${dotIdx + 1}`}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Chevron Right Button inside hover circle container */}
-                    <button
-                      onClick={() => setHeritageSlideIndex((prev) => (prev + 1) % 6)}
-                      className="w-10 h-10 rounded-full border border-white/25 hover:bg-white hover:text-[#ff5722] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 text-white cursor-pointer shadow-md bg-white/5"
-                      title="Next Milestone"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
-
-                    {/* Extra floating Quick AI Consultation Trigger */}
-                    <button
-                      onClick={() => {
-                        const topics = [
-                          "the historic March 1565 Blood Compact Site in Bohol",
-                          "the neoclassical historic Capitol and National Museum Bohol",
-                          "the Plaza Rizal Bandstand square and night lighting in Tagbilaran",
-                          "the native blacksmithing of Boholano Blade Weapons and Bolos",
-                          "the WW2 Guerrilla Force Memorial Spanish Ancestral Houses in Poblacion 1",
-                          "the Tubig Dako Lagoon & Freshwater Spring in Taloto"
-                        ];
-                        _triggerChatInquiry(`Please tell me the deep historical details and significance regarding ${topics[heritageSlideIndex]}.`);
-                      }}
-                      className="absolute right-0 font-mono text-[9px] uppercase tracking-widest text-[#00f5d4] bg-black/80 hover:bg-white hover:text-[#ff5722] px-3.5 py-2 rounded-xl transition-all font-bold hover:scale-105 cursor-pointer border border-[#00f5d4]/25 shadow-md hidden sm:inline-block"
-                    >
-                      Inquire AI
-                    </button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
+            {/* DUAL INFINITE MARQUEE CAROUSEL SHOWCASE */}
+            <HeritageMarquee />
 
             {/* HIGH-END INTERACTIVE TIMELINE PLACED DIRECTLY BELOW THE SLIDE DISPLAY */}
             <div className="w-full max-w-7xl mx-auto px-6 sm:px-12 mt-24" id="chronology-timeline">

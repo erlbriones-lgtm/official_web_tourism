@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowDown, Flame, Sparkles, MapPin, Compass } from "lucide-react";
 
+import slide1 from "../assets/images/blood_compact_monument_1779755352294.jpg";
+import slide2 from "../assets/images/bohol_national_museum_1779755372514.jpg";
+import slide3 from "../assets/images/bohol_blades_1779755393328.jpg";
+import slide4 from "../assets/images/ancestral_house_1779755412422.jpg";
+import slide5 from "../assets/images/tubig_dako_spring_1779755435421.jpg";
+
 interface HeroProps {
   onOpenAI: () => void;
   onSwitchToHeritage: () => void;
@@ -11,16 +17,11 @@ interface HeroProps {
 }
 
 const SLIDE_IMAGES = [
-  "/BCS.webp",
-  "/Blood Compact Shrine (21).webp",
-  "/Blood Compact Shrine (28).webp",
-  "/Blood Compact Shrine (31).webp",
-  "/Bohol Blades (1).webp",
-  "/Bohol Blades (3).webp",
-  "/Bohol Blades (3)-1.webp",
-  "/MUSEUM2.webp",
-  "/Old House in Poblacion 1 (3).webp",
-  "/Tubig Dako in Taloto (1).webp"
+  slide1,
+  slide2,
+  slide3,
+  slide4,
+  slide5
 ];
 
 export default function Hero({ onOpenAI, onSwitchToHeritage, onPlanVisit, weatherDescription, temperature }: HeroProps) {

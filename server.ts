@@ -121,6 +121,16 @@ app.get("/api/local-status", (req, res) => {
 
 // Serve static assets or set up Vite middleware
 async function start() {
+  // Always statically serve the Timages directory at root level in addition to Vite/dist
+  // Force correct MIME type for webp images to ensure all browsers render them perfectly
+  app.use(express.static(path.join(process.cwd(), "Timages"), {
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith(".webp")) {
+        res.setHeader("Content-Type", "image/webp");
+      }
+    }
+  }));
+
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -129,7 +139,13 @@ async function start() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
+    app.use(express.static(distPath, {
+      setHeaders: (res, filePath) => {
+        if (filePath.endsWith(".webp")) {
+          res.setHeader("Content-Type", "image/webp");
+        }
+      }
+    }));
     app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });

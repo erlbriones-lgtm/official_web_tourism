@@ -1,4 +1,7 @@
 import { Landmark } from "./types";
+import slide1 from "./assets/images/blood_compact_monument_1779755352294.jpg";
+import slide2 from "./assets/images/bohol_national_museum_1779755372514.jpg";
+import slide4 from "./assets/images/ancestral_house_1779755412422.jpg";
 
 export const tagbilaranLandmarks: Landmark[] = [
   {
@@ -9,7 +12,7 @@ export const tagbilaranLandmarks: Landmark[] = [
     location: "Barangay Bohol, Tagbilaran City",
     yearEstablished: "1565 (Pact) / 1997 (Sculpture)",
     highlight: "Symbol of International Friendship",
-    imageUrl: "/BCS.webp"
+    imageUrl: slide1
   },
   {
     id: "st-joseph-cathedral",
@@ -19,7 +22,7 @@ export const tagbilaranLandmarks: Landmark[] = [
     location: "Poblacion II, Tagbilaran City",
     yearEstablished: "1724",
     highlight: "Neoclassical Architecture & Ceiling Murals",
-    imageUrl: "/Old House in Poblacion 1 (3).webp"
+    imageUrl: slide4
   },
   {
     id: "bohol-national-museum",
@@ -29,7 +32,7 @@ export const tagbilaranLandmarks: Landmark[] = [
     location: "Library & Museum District, Tagbilaran City",
     yearEstablished: "1860 (Capitol) / 2018 (Museum)",
     highlight: "Immersive Historical Artifacts & Art",
-    imageUrl: "/MUSEUM2.webp"
+    imageUrl: slide2
   }
 ];
 

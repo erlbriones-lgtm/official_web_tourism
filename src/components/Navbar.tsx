@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Compass } from "lucide-react";
 import { motion } from "motion/react";
+import logoUrl from "../../Timages/TagbilaranLogo.webp";
 
 interface NavbarProps {
   activeView: "home" | "heritage" | "downloadables" | "about";
@@ -48,9 +49,9 @@ export default function Navbar({ activeView, setActiveView, onPlanVisit }: Navba
           id="nav-logo"
         >
           <img 
-            src="/TagbilaranLogo.webp" 
+            src={logoUrl} 
             alt="Tagbilaran Official Seal" 
-            className="w-8 h-8 object-contain filter drop-shadow-[5px_5px_10px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-105" 
+            className="w-8 h-8 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105" 
             referrerPolicy="no-referrer"
           />
           <span className="font-sans font-extrabold tracking-wide text-sm sm:text-base transition-colors leading-none text-white drop-shadow-md">
